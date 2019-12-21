@@ -2,7 +2,7 @@ print('='*60+'''
 This python script deletes all of the policies and re-indexes them from 1 - X\n'''+'='*60+'''
 1.) To get started, run the command "show firewall policy" from your FortiGate. 
 2.) Save the file as "policy.txt" and place it in the SAME directory as this script.
-3.) Run the script via "python policy_index.py"
+3.) Run the script via "python policy_reorder.py"
 4.) The new config will be saved to the directory as "policy_reorg_list.txt"
 5.) Upload file to your FortiGate via System > Advanced > Configuration Scripts\n'''+'='*60)
 user_var = raw_input('Are you ready to get started? (Yes / No)')
