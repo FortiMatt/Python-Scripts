@@ -1,3 +1,4 @@
+#PRINT GENERAL MESSAGE
 print('='*60+'''
 This python script deletes all of the policies and re-indexes them from 1 - X\n'''+'='*60+'''
 1.) To get started, run the command "show firewall policy" from your FortiGate. 
@@ -5,8 +6,9 @@ This python script deletes all of the policies and re-indexes them from 1 - X\n'
 3.) Run the script via "python policy_reorder.py"
 4.) The new config will be saved to the directory as "policy_reorg_list.txt"
 5.) Upload file to your FortiGate via System > Advanced > Configuration Scripts\n'''+'='*60)
+#COLLECT USERINPUT
 user_var = raw_input('Are you ready to get started? (Yes / No)')
-
+#SEE IF FIRST LETTER IS = Y, IF SO WE RUN THE SCRIPT
 if user_var[0].lower() == 'y':
 	#OPEN FILE
 	data = open("policy.txt", "r")
@@ -18,7 +20,6 @@ if user_var[0].lower() == 'y':
 	#SETS TWO CONFIG VARIABLES FOR PRINT
 	conf_policy = "config firewall policy\n"
 	end = "end\n"
-
 	#MAIN LOOP TO FIND OUT HOW MANY EDIT "#" ARE IN THE TEXT FILE
 	for line in data:
 		#IF THE LINE IS CONTAINS CONFIG (USUALY CONFIG FIREWALL POLICY) REMOVE IT ALL TOGETHER
@@ -64,5 +65,6 @@ if user_var[0].lower() == 'y':
 			f.write(line.strip()+"\n")
 	f.close()
 	print("="*60+"\nYour conversion is complete. File saved as policy_reorg_list.txt\n"+"="*60)
+#IF USER INPUT = NO THEN PRINT
 else:
 	print("Sorry try running the script again!")
