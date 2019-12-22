@@ -1,3 +1,6 @@
+### POLICY_REORDER.PY
+### AUTHOR: FORTIMATT
+
 #PRINT GENERAL MESSAGE
 print('='*60+'''
 This python script deletes all of the policies and re-indexes them from 1 - X\n'''+'='*60+'''
