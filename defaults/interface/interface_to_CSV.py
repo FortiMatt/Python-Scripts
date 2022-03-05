@@ -1,7 +1,7 @@
-#IMPORT CSV FOR WRITING LATER
+# IMPORT CSV FOR WRITING LATER
 import csv
 
-#CLEANS UP STRING INPUT
+# CLEANS UP STRING INPUT
 def line_clean_up(x):
     x = x.split("\n")
     #CHECKS IF LINE IS EMPTY
@@ -12,7 +12,7 @@ def line_clean_up(x):
         new_list.append(line)
     return new_list
 
-#BREAKS STRING INTO LISTS AND DEFINES DIC KEY/VALUE PAIRS
+# BREAKS STRING INTO LISTS AND DEFINES DIC KEY/VALUE PAIRS
 def interface_default(list):
     int_default = {}
     for line in list:
@@ -26,7 +26,8 @@ def interface_default(list):
         int_default[key] = value
     return int_default
 
-#FORTIOS DEFAULT INTEFACE "SHOW SYSTEM INTERFACE" OUTPUT
+
+# FORTIOS DEFAULT INTEFACE "SHOW SYSTEM INTERFACE" OUTPUT
 string = """
 name                : 
 vdom                : 
@@ -146,13 +147,13 @@ interface           :
 vlanid              : 0
 """
 
-#CLEANS TEXT
+# CLEANS TEXT
 default = line_clean_up(string)
 
-#DEFAULT COLUMN HEADERS
+# DEFAULT COLUMN HEADERS
 col_name=["default_key", "default_value"]
 
-#CREATE THE CSV WITH LOOP
+# CREATE THE CSV WITH LOOP
 with open('default_interface.csv', 'w') as f:
     wr = csv.DictWriter(f, fieldnames=col_name)
     wr.writeheader()
