@@ -148,7 +148,12 @@ vlanid              : 0
 #CLEANS TEXT
 default = line_clean_up(string)
 
-#DICT LOOP TO CSV - CHANGE NAME IF REQUIRED
+#DEFAULT COLUMN HEADERS
+col_name=["default_key", "default_value"]
+
+#CREATE THE CSV WITH LOOP
 with open('default_interface.csv', 'w') as f:
+    wr = csv.DictWriter(f, fieldnames=col_name)
+    wr.writeheader()
     for key in interface_default(default).keys():
-        f.write("%s,%s\n"%(key,interface_default(default)[key]))
+        f.write("%s,%s\n"%(key, interface_default(default)[key]))
