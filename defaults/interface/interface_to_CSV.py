@@ -1,9 +1,10 @@
+#IMPORT CSV FOR WRITING LATER
 import csv
 
 #CLEANS UP STRING INPUT
-
 def line_clean_up(x):
     x = x.split("\n")
+    #CHECKS IF LINE IS EMPTY
     non_empty_lines = [line for line in x if line.strip() != ""]
     new_list = []
     for line in non_empty_lines:
