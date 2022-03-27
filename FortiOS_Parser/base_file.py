@@ -2,13 +2,14 @@ import csv
 
 csv.register_dialect('skip_space', skipinitialspace=True)
 
+file_name = "FOS_CONF.txt"
 
 def indenter(x):
     indent = "\t"*x
     return indent
 
 
-with open('9570_UNION_PARK_7-0_0234_202203221506.txt', 'r') as f:
+with open(file_name, 'r') as f:
     reader = csv.reader(f, delimiter=' ', dialect='skip_space')
     conf_file_name = []
     tab = 0
